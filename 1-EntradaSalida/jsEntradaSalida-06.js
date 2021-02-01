@@ -16,18 +16,17 @@ function sumar()
 
 	alert ("La suma es " +resultado);
 
-		//otra forma//
+    //------------------Otra forma------------------------------//
+    
+	//num1   = document.getElementById("txtIdNumeroUno").value;
+
+	//num2   = document.getElementById("txtIdNumeroDos").value;
+
+	//resultado = parseInt(num1) + parseInt(num2);
 
 
-	num1   = document.getElementById("txtIdNumeroUno").value;
+	//alert ("La suma es "+resultado);
 
-	num2   = document.getElementById("txtIdNumeroDos").value;
-
-	resultado = parseInt(num1) + parseInt(num2);
-
-
-	alert ("La suma es "+resultado);
-
-
+  
 }
 
