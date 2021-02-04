@@ -44,5 +44,25 @@ function Circulo ()
 
 function Materiales () 
 {
-	
+    let largo;
+    let ancho;
+    let perimetro;
+    let cemento;
+    let cal;
+
+    largo = document.getElementById("txtIdLargo").value;
+    largo = parseFloat(largo);
+
+    ancho = document.getElementById("txtIdAncho").value;
+    ancho = parseFloat(ancho);
+
+    perimetro = (largo + ancho) * 2;
+
+    cemento = perimetro * 2;
+
+    cal = perimetro * 3;
+
+
+    alert ("Se necesitan : " +cemento + " bolsas de cemento y " + cal + " de cal." );
+
 }
