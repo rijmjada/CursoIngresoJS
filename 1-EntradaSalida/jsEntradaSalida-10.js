@@ -8,10 +8,17 @@ function mostrarAumento()
 	let importe;
 	let descuento;
 	let resultado;
+	let operacion;
 
-	importe = parseFloat(document.getElementById("txtIdImporte").value);
-	descuento = importe *25/100;
-	resultado = importe - descuento;
+	importe = document.getElementById("txtIdImporte").value;
+	importe = parseInt (importe);
+
+	descuento = prompt ("Ingrese descuento : ");
+	descuento = parseInt (descuento);
+
+	operacion = importe * descuento / 100;
+
+	resultado = importe - operacion;
 
 	document.getElementById("txtIdResultado").value = resultado;
 
