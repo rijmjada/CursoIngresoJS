@@ -4,29 +4,34 @@ transformarlos a enteros (parseInt) y Sumarlos.
 mostrar el resulto por medio de "ALERT"*/
 function sumar()
 {
-	let num1;
-	let num2;
+	let numero1;
+	let numero2;
 	let resultado;
 
 
-	num1   = parseInt(document.getElementById("txtIdNumeroUno").value);
-	num2   = parseInt(document.getElementById("txtIdNumeroDos").value);
+	numero1   = parseInt(document.getElementById("txtIdNumeroUno").value);
+	numero2   = parseInt(document.getElementById("txtIdNumeroDos").value);
 
-	resultado = num1 + num2;
+	resultado = numero1 + numero2;
 
 	alert ("La suma es " +resultado);
 
-    //------------------Otra forma------------------------------//
-    
-	//num1   = document.getElementById("txtIdNumeroUno").value;
+	/*
+	let numero1;
+	let numero2;
+	let resultado;
+	
 
-	//num2   = document.getElementById("txtIdNumeroDos").value;
+	numero1   = document.getElementById("txtIdNumeroUno").value;
+	numero 2   = document.getElementById("txtIdNumeroDos").value;
 
-	//resultado = parseInt(num1) + parseInt(num2);
+	resultado = parseInt(numero1) + parseInt(numero2);
 
 
-	//alert ("La suma es "+resultado);
+	alert ("La suma es "+resultado);
 
-  
+	*/
+
+
 }
 
