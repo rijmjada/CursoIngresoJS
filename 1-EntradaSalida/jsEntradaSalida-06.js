@@ -22,7 +22,7 @@ function sumar()
 	let resultado;
 	
 
-	numero1   = document.getElementById("txtIdNumeroUno").value;
+	numero1    = document.getElementById("txtIdNumeroUno").value;
 	numero 2   = document.getElementById("txtIdNumeroDos").value;
 
 	resultado = parseInt(numero1) + parseInt(numero2);
