@@ -14,7 +14,8 @@ function FahrenheitCentigrados ()
     ecuacion = (temperatura - 32) * 5/9 
 
 
-    alert ("Su temperatura en Centigrados es : " + ecuacion);
+    alert ("Su temperatura en Centigrados es : " + ecuacion.toFixed(2) );
+    
 
 }
 
@@ -30,6 +31,6 @@ function CentigradosFahrenheit ()
     ecuacion = (temperatura * 9/5) + 32
 
 
-    alert ("Su temperatura en Fahrenheit es : " + ecuacion);
+    alert ("Su temperatura en Fahrenheit es : " + ecuacion.toFixed(2) );
 
 }
