@@ -6,7 +6,8 @@ function mostrar ()
 	edad = parseInt(edad);
 
 
-	if (edad == 15) {
+	if (edad == 15) 
+	{
 
 		alert ("Niña Bonita");
 	}

@@ -18,3 +18,38 @@ function SacarResto()
 
 
 }
+
+/* Sabados ejercicio 3
+3 - Ingresar dos numeros por id
+Se pide:
+mostrar por console.log:
+a) La suma de los dos numeros
+b) El promedio de los numeros.
+c) El modulo de los numeros (el primero en modulo del segundo)
+
+UTILIZAR EL EJERCICIO 8 para resolverlo
+*/
+function SacarResto()
+{
+	let numero1;
+	let numero2;
+	let resultado;
+	let suma;
+	let promedio;
+	let modulo;
+
+	numero1 = document.getElementById("txtIdNumeroDividendo").value;
+	numero1 = parseFloat(numero1);
+
+	numero2 = document.getElementById("txtIdNumeroDivisor").value;
+	numero2 = parseFloat(numero2);
+
+	suma   = numero1 + numero2;
+
+	promedio = suma / 2;
+
+	modulo  = numero1 % numero2;
+
+	console.log ("-Suma: "+ suma + "  -promedio: "+ promedio + "   -modulo : "+ modulo);
+
+}
