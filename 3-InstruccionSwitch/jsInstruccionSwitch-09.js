@@ -47,6 +47,8 @@ function mostrar()
 			
 		}//invierno
 			break;
+
+
 		
 		case "Verano":{
 			if (destino == "Bariloche"){
@@ -62,6 +64,8 @@ function mostrar()
 			}
 		}// verano
 			break;
+
+			
 		
 		case "Otoño":
 		case "Primavera":{

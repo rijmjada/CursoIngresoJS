@@ -8,6 +8,7 @@ E.	Si el importe final con descuento suma más de $120  se debe sumar un 10% de 
  ”Usted pago X de IIBB.”, siendo X el impuesto que se pagó. 
 
  */
+/*
 function CalcularPrecio () 
 {
  	//6  $105
@@ -99,4 +100,120 @@ function CalcularPrecio ()
 
 
  	
+}*/
+
+function CalcularPrecio () 
+{
+	//6  $105
+	//5  ArgentinaLuz 40 % 5*35  $105
+	//5  otra marca 30 %   5*35   
+
+	let cantidad;
+	let marca;
+	let Subtotal;
+	let descuento;
+	let precioFinal;
+	let porcentaje;
+	
+	
+	cantidad = document.getElementById('txtIdCantidad').value;
+	cantidad = parseInt(cantidad);
+
+	marca = document.getElementById('Marca').value;
+
+	porcentaje=0;
+	descuento=0;
+	Subtotal= 35 * cantidad;
+
+	if(cantidad >5){
+			porcentaje = 50;
+	}
+	else
+	{
+		switch(marca){
+
+			case "ArgentinaLuz":{
+
+				switch(cantidad){
+					case 5:
+							porcentaje = 40;
+							break;
+						
+					case 4:
+							porcentaje = 25;
+							break;
+					case 3:
+							porcentaje = 15;
+
+						default:
+							porcentaje = 0;
+							break;
+				}//cantidad
+				
+	
+			}//argentinaluz
+
+			break;
+
+			case "FelipeLamparas":{
+				
+					switch(cantidad){
+						
+						case 5:
+							porcentaje = 30;
+							break;
+						case 4:
+							porcentaje = 25;
+							break;
+						
+						case 3:
+							porcentaje = 10;
+							break;
+						
+						default:
+							porcentaje = 0;
+							break;
+	
+					}//switch cantidad
+				
+			}//FelipeLamparas
+		
+				break;
+	
+
+			case "JeLuz":	
+			case "HazIluminacion":	
+			case "Osram":{
+				
+				switch(cantidad){
+					
+					case 5:
+						porcentaje =30;
+						break;
+						case 4:
+							porcentaje =20;
+							break;
+							case 3:
+								porcentaje =5;
+								break;
+					default:
+						porcentaje = 0;
+						break;			
+				}//switch cantidad
+				
+			}//Jeluz.etc
+
+			break;
+				
+		}//switch marca
+	
+
+	}
+
+	descuento = Subtotal * porcentaje / 100;
+ 	precioFinal = Subtotal - descuento;
+
+
+	document.getElementById("txtIdprecioDescuento").value = precioFinal;
+
 }
