@@ -5,7 +5,6 @@ function mostrar()
 	nota = Math.floor((Math.random() * 10) + 1);
 
 	
-
 	if (nota >4){
 
 		if(nota >8){

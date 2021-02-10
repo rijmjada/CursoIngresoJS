@@ -1,9 +1,9 @@
 function mostrar()
 {
-	let x;
+	let numeroRandom;
 
-	x = Math.floor((Math.random() * 10) + 1);
+	numeroRandom = Math.floor((Math.random() * 10) + 1);
 
-	console.log (x);
+	console.log (numeroRandom);
 
 }

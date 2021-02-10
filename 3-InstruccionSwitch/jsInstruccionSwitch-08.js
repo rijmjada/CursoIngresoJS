@@ -1,6 +1,27 @@
+/*
+Diego Ormeño
+
+Enunciado:
+Al seleccionar un destino informar si hace FRIO o CALOR en ese destino
+*/
+
 function mostrar()
 {
-	var destinoIngresado =txtIdDestino.value;
-	alert(destinoIngresado);
+	let destino;
 
-}//FIN DE LA FUNCIÓN
+	destino = document.getElementById("txtIdDestino").value;
+
+	switch(destino){
+
+		case "Ushuaia":
+		case  "Bariloche":
+			alert ("Frio.");
+			break;
+		
+		case "Mar del Plata":
+		case "Cataratas":
+			alert ("Calor");
+			break;
+
+	}
+}
