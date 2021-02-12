@@ -1,19 +1,43 @@
-/*
+/* Diego Ormeño
+
+Ejercicio 
+
 Al presionar el botón pedir  números  hasta que el usuario quiera,
 sumar los que son positivos y multiplicar los negativos.*/
 function mostrar()
 {
-	var contador;
-	var respuesta;
-	var sumaPositivos;
-	var multiplicacionNegativos;
-	contador=0;
-	sumaPositivos=0;
-	multiplicacionNegativos=1;
-	respuesta='si';
+	let numeroUsuarios;
+	let bucles;
+	let suma;
+	let consulta;
+	let multiplicar;
 
 
-	txtIdSuma.value=sumaPositivos;
-	txtIdProducto.value=multiplicacionNegativos;
+	numeroUsuarios = 0;
+	bucles = 0;
+	suma = 0;
+	multiplicar = 1;
+	consulta = "Si"
 
-}//FIN DE LA FUNCIÓN
+	while(consulta == "Si"){
+
+		bucles= bucles + 1;
+		numeroUsuarios = prompt("Ingrese numero: ");
+		numeroUsuarios = parseInt(numeroUsuarios);
+		if(numeroUsuarios >0){
+			suma = suma + numeroUsuarios;
+		}
+		else{
+			multiplicar = multiplicar * numeroUsuarios;
+		}
+
+		consulta = prompt("Si, para continuar : ");
+
+	}
+
+
+	document.getElementById("txtIdSuma").value = suma;
+
+	document.getElementById("txtIdProducto").value = multiplicar;
+	
+}
