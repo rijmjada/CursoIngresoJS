@@ -102,6 +102,7 @@ function CalcularPrecio ()
  	
 }*/
 
+/*
 function CalcularPrecio () 
 {
 	//6  $105
@@ -178,7 +179,7 @@ function CalcularPrecio ()
 				
 			}//FelipeLamparas
 		
-				break;
+			break;
 	
 
 			case "JeLuz":	
@@ -211,9 +212,369 @@ function CalcularPrecio ()
 	}
 
 	descuento = Subtotal * porcentaje / 100;
+	precioFinal = Subtotal - descuento;
+
+   if (precioFinal > 120){
+		   iibb = precioFinal * 10 / 100;
+		   precioFinal = iibb + precioFinal;
+		   
+		   alert ("Usted pago "+ iibb +" de impuestos.")
+   }
+   else {}
+
+
+   document.getElementById("txtIdprecioDescuento").value = precioFinal;
+
+}
+
+
+
+/* Switch con If
+function CalcularPrecio () 
+{
+	
+	let cantidad;
+	let marca;
+	let Subtotal;
+	let descuento;
+	let precioFinal;
+	let porcentaje;
+	let iibb;
+	
+	cantidad = document.getElementById('txtIdCantidad').value;
+	cantidad = parseInt(cantidad);
+
+	marca = document.getElementById('Marca').value;
+
+	porcentaje = 0;
+	descuento = 0;
+	iibb = 0;
+	Subtotal= 35 * cantidad;
+
+
+	
+	switch(cantidad){
+
+		case 5:
+			if (marca == "ArgentinaLuz"){
+					porcentaje = 40;
+			}
+			else{
+				if(marca)
+					porcentaje = 30;
+			}
+			break;
+
+		case 4:	
+				if (marca == "ArgentinaLuz" || marca == "FelipeLamparas"){
+					porcentaje = 25;
+				}
+				else{
+					porcentaje = 20;
+				}
+				break;
+
+		case 3:	
+				if (marca == "ArgentinaLuz"){
+					porcentaje = 15;
+				}
+				else {
+					if (marca == "FelipeLamparas"){
+						porcentaje = 10;
+					}
+					else{
+						porcentaje = 5;
+					}
+				}
+				break;
+		case 2:
+		case 1:	
+				porcentaje = 0;
+				break;
+		default:
+			porcentaje = 50;	
+		
+
+
+	}//switch marca
+
+	descuento = Subtotal * porcentaje / 100;
  	precioFinal = Subtotal - descuento;
+
+	if (precioFinal > 120){
+			iibb = precioFinal * 10 / 100;
+			precioFinal = iibb + precioFinal;
+			
+			alert ("Usted pago "+ iibb +" de impuestos.")
+	}
+	else {}
 
 
 	document.getElementById("txtIdprecioDescuento").value = precioFinal;
 
 }
+*/
+/*
+function CalcularPrecio () 
+{
+	
+	let cantidad;
+	let marca;
+	let Subtotal;
+	let descuento;
+	let precioFinal;
+	let porcentaje;
+	
+	
+	cantidad = document.getElementById('txtIdCantidad').value;
+	cantidad = parseInt(cantidad);
+
+	marca = document.getElementById('Marca').value;
+
+	porcentaje=0;
+	descuento=0;
+	Subtotal= 35 * cantidad;
+
+	switch(cantidad){
+
+		case 1:
+		case 2:
+			porcentaje = 0;
+			break;
+
+		case 3:
+			switch(marca){
+
+				case "ArgentinaLuz":
+					porcentaje = 15;
+					break;
+				case "FelipeLamparas":
+					porcentaje = 10;
+				 	break;
+				default:
+					porcentaje = 5;
+					break
+			}
+			break;
+
+
+		case 4:
+			switch (marca){
+
+				case "ArgentinaLuz":
+				case "FelipeLamparas":	
+					porcentaje = 25;
+					break;
+				default:
+						porcentaje = 20;
+						break
+			}
+			break;
+
+
+		case 5:
+			switch(marca){
+
+				case "ArgentinaLuz":	
+					porcentaje = 40;
+					break;
+				default:
+					porcentaje = 30;
+					break
+			}
+			break;
+
+
+		default:
+			porcentaje = 50;
+			break;					
+	}
+
+	descuento = Subtotal * porcentaje / 100;
+ 	precioFinal = Subtotal - descuento;
+
+	if (precioFinal > 120){
+			iibb = precioFinal * 10 / 100;
+			precioFinal = iibb + precioFinal;
+			
+			alert ("Usted pago "+ iibb +" de impuestos.")
+	}
+	else {}
+
+
+	document.getElementById("txtIdprecioDescuento").value = precioFinal;
+
+}
+
+function CalcularPrecio () 
+{
+	
+	let cantidad;
+	let marca;
+	let Subtotal;
+	let descuento;
+	let precioFinal;
+	let porcentaje;
+	
+	
+	cantidad = document.getElementById('txtIdCantidad').value;
+	cantidad = parseInt(cantidad);
+
+	marca = document.getElementById('Marca').value;
+
+	porcentaje=0;
+	descuento=0;
+	Subtotal= 35 * cantidad;
+
+	switch(cantidad){
+
+		case 1:
+		case 2:
+			porcentaje = 0;
+			break;
+
+		case 3:
+			if(marca == "ArgentinaLuz"){
+				porcentaje = 15;
+			}
+			else {
+				if(marca == "FelipeLamparas"){
+					porcentaje = 10;
+				}
+				else {
+					porcentaje = 5;
+				}
+			}
+
+
+		case 4:
+			if(marca == "ArgentinaLuz" || marca == "FelipeLamparas"){
+				porcentaje = 25;
+			}
+			else{
+				porcentaje = 20;
+			} 
+		break;
+
+
+		case 5:
+			if(marca == "ArgentinaLuz"){
+				porcentaje = 40;
+			}
+			else{
+			porcentaje = 30;
+			} 
+		break;
+			
+
+
+		default:
+			porcentaje = 50;
+			break;					
+	}
+
+	descuento = Subtotal * porcentaje / 100;
+ 	precioFinal = Subtotal - descuento;
+
+	if (precioFinal > 120){
+			iibb = precioFinal * 10 / 100;
+			precioFinal = iibb + precioFinal;
+			
+			alert ("Usted pago "+ iibb +" de impuestos.")
+	}
+	else {}
+
+
+	document.getElementById("txtIdprecioDescuento").value = precioFinal;
+
+}
+
+*/
+function CalcularPrecio () 
+{
+	
+	let cantidad;
+	let marca;
+	let Subtotal;
+	let descuento;
+	let precioFinal;
+	let porcentaje;
+	
+	
+	cantidad = document.getElementById('txtIdCantidad').value;
+	cantidad = parseInt(cantidad);
+
+	marca = document.getElementById('Marca').value;
+
+	porcentaje=0;
+	descuento=0;
+	Subtotal= 35 * cantidad;
+
+	if(cantidad < 6){
+
+		if(cantidad == 5){
+			switch(marca){
+				
+				case "ArgentinaLuz":	
+					porcentaje = 40;
+					break;
+				default:
+					porcentaje = 30;
+					break;
+			}
+			
+			
+		}
+		else{
+			if(cantidad == 4){
+				switch(marca){
+					case "ArgentinaLuz":
+					case "FelipeLamparas":		
+					porcentaje = 25;
+					break;
+				default:
+					porcentaje = 20;
+					break;
+				}
+			}
+			else{
+				if(cantidad == 3){
+					switch(marca){
+						case "ArgentinaLuz":	
+							porcentaje = 15;
+							break;
+						case "FelipeLamparas":
+							porcentaje = 10;	
+							break;
+						default:
+							porcentaje = 5;
+							break;
+					}
+				}
+			}
+		}
+
+	}
+
+	else{
+		porcentaje = 50;
+
+	}
+	
+
+	descuento = Subtotal * porcentaje / 100;
+ 	precioFinal = Subtotal - descuento;
+
+	if (precioFinal > 120){
+			iibb = precioFinal * 10 / 100;
+			precioFinal = iibb + precioFinal;
+			
+			alert ("Usted pago $"+ iibb +" de impuestos.")
+	}
+	else {}
+
+
+	document.getElementById("txtIdprecioDescuento").value = precioFinal;
+
+}
+

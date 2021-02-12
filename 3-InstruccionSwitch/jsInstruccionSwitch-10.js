@@ -40,8 +40,8 @@ function mostrar()
 			switch (destino){
 
 				case "Mar del plata":
-					case "Cataratas":
-						alert ("Se viaja.");
+				case "Cataratas":
+					alert ("Se viaja.");
 						break;
 				default:
 					alert ("No se viaja");
@@ -65,8 +65,8 @@ function mostrar()
 				
 				case "Bariloche":
 					alert ("No se viaja.");
-					default:
-						alert ("No se viaja.")
+				default:
+					alert ("No se viaja.")
 
 			}
 		}// Primavera
