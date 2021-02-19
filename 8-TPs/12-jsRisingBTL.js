@@ -30,9 +30,9 @@ function ComenzarIngreso ()
 	document.getElementById("txtIdEdad").value = edad;
 	//termina edad
 
-	sexo = prompt("Sexo, “M” para masculino y “F” para femenino : ");
+sexo = prompt("Ingrese Sexo, masculino o femenino : ");
 
-	while(sexo != "M" && sexo != "F"){
+	while(sexo != "masculino" && sexo != "femenino"){
 		sexo = prompt("Reingrese: Sexo, “M” para masculino y “F” para femenino : ");
 	}
 	document.getElementById("txtIdSexo").value = sexo;
@@ -72,11 +72,11 @@ function ComenzarIngreso ()
 	//termina Legajo
 
 
-	nacionalidad = prompt("Nacionalidad, “A” para argentinos, “E” para extranjeros, “N” para nacionalizados.");
+	nacionalidad = prompt("Ingrese nacionalidad : ¨Argentino¨, ¨Extranjero¨ o ¨Nacionalizado¨");
 
-	while (nacionalidad != "A" && nacionalidad != "E" && nacionalidad != "N")
+	while (nacionalidad != "Argentino" && nacionalidad != "Extranjero" && nacionalidad != "Nacionalizado")
 	{
-		nacionalidad = prompt("Nacionalidad, “A” para argentinos, “E” para extranjeros, “N” para nacionalizados.");
+		nacionalidad = prompt("Dato invalido. Ingrese nacionalidad : ¨Argentino¨, ¨Extranjero¨ o ¨Nacionalizado¨");
 	}
 	document.getElementById("txtIdNacionalidad").value = nacionalidad;
 	//termina nacionalidad
