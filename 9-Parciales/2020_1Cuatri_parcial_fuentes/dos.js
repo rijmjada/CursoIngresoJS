@@ -1,4 +1,5 @@
 /*Enunciado:
+Diego Ormeño
 
 Realizar el algoritmo que permita ingresar los datos de una compra productos de la construccion, hasta que el cliente quiera:
 Tipo validad("arena";"cal";"cemento")
@@ -15,107 +16,131 @@ f) El tipo mas caro
 
 function mostrar()
 {
-  let ingresoProducto;
-  let ingresoCantidad;
-  let ingresoPrecio;
-  let acumuladorBolsas;
+  let productoUsuario;
+  let unidadesUsuario;
+  let precioUsuario;
   let porcentajeDescuento;
   let precioSubtotal;
-  let sumaPrecioSubtotal;
+  let acumuladorSubtotal;
   let descuentoAplicado;
   let precioFinal;
   let promedioBolsas;
   let consultaUsuario;
-
+  let acumuladorBolsas;
   let acumuladorCemento;
   let acumuladorArena;
   let acumuladorCal;
+  let tipoMasCaro;
+  let precioMasAlto;
 
+  precioMasAlto = 0;
+  acumuladorBolsas = 0;
   acumuladorArena = 0;
   acumuladorCal = 0;
   acumuladorCemento = 0;
-
   descuentoAplicado = 0;
-  sumaPrecioSubtotal = 0;
+  acumuladorSubtotal = 0;
   porcentajeDescuento = 0;
   precioSubtotal = 0;
   precioFinal = 0;
-  acumuladorBolsas = 0;
   consultaUsuario = "si";
-  ingresoCantidad = 0;
+  unidadesUsuario = 0;
   
 
 
   while(consultaUsuario == "si")
   {
 
-    ingresoProducto = prompt ("Ingrese el producto que desea cargar (arena, cal ,cemento): ");
-    while(!(ingresoProducto == "arena" || ingresoProducto =="cal" || ingresoProducto =="cemento")){
-      ingresoProducto = prompt ("Dato erroneo. Ingrese arena, cal o cemento : ");
+    productoUsuario = prompt ("Ingrese el producto que desea cargar (arena, cal ,cemento): ");
+    while(!(productoUsuario == "arena" || productoUsuario =="cal" || productoUsuario =="cemento")){
+      productoUsuario = prompt ("Dato erroneo. Ingrese arena, cal o cemento : ");
     }
 
-    ingresoCantidad = prompt ("Ingrese cantidad de bolsas : ");
-    ingresoCantidad = parseInt(ingresoCantidad);
-      while(isNaN(ingresoCantidad)== true ){
-        ingresoCantidad = prompt ("Error . Ingrese cantidad de bolsas : ");
-       ingresoCantidad = parseInt(ingresoCantidad);
+    unidadesUsuario = prompt ("Ingrese cantidad de bolsas : ");
+    unidadesUsuario = parseInt(unidadesUsuario);
+      while(isNaN(unidadesUsuario)== true ){
+        unidadesUsuario = prompt ("Error . Ingrese cantidad de bolsas : ");
+       unidadesUsuario = parseInt(unidadesUsuario);
       }
       
-    ingresoPrecio = prompt ("Ingrese precio: ");
-    ingresoPrecio = parseFloat(ingresoPrecio);
-      while(isNaN(ingresoPrecio)== true){
-        ingresoPrecio = prompt ("Error . Ingrese precio : ");
-        ingresoPrecio = parseInt(ingresoPrecio);
+    precioUsuario = prompt ("Ingrese precio: ");
+    precioUsuario = parseFloat(precioUsuario);
+      while(isNaN(precioUsuario)== true){
+        precioUsuario = prompt ("Error . Ingrese precio : ");
+        precioUsuario = parseInt(precioUsuario);
       }
-      /// Fin validaciones ///
+      /// FIN VALIDACIONES ///
 
-    acumuladorBolsas = acumuladorBolsas + ingresoCantidad;
-    precioSubtotal = ingresoPrecio * ingresoCantidad;
-    sumaPrecioSubtotal = precioSubtotal + sumaPrecioSubtotal;
+    acumuladorBolsas = acumuladorBolsas + unidadesUsuario;
+    precioSubtotal = precioUsuario * unidadesUsuario;
+    acumuladorSubtotal = precioSubtotal + acumuladorSubtotal;
 
-    switch(ingresoProducto){
+    switch(productoUsuario){
 
         case "arena":
-          acumuladorArena = acumuladorArena + ingresoCantidad;
+          acumuladorArena = acumuladorArena + unidadesUsuario;
+          if(precioMasAlto == 0 || precioUsuario > precioMasAlto){
+             tipoMasCaro = "Arena";
+          }else{}
           break;
         case "cemento":
-          acumuladorCemento = acumuladorCemento + ingresoCantidad;
+          acumuladorCemento = acumuladorCemento + unidadesUsuario;
+          if(precioMasAlto == 0 || precioUsuario > precioMasAlto){
+            tipoMasCaro = "Cemento";
+         }else{}
           break;
         case "cal":
-          acumuladorCal = acumuladorCal + ingresoCantidad;
+          acumuladorCal = acumuladorCal + unidadesUsuario;
+          if(precioMasAlto == 0 || precioUsuario > precioMasAlto){
+            tipoMasCaro = "Cal";
+         }else{}
           break;
-    }//fin switch
-
+      }// FIN SWITCH
       
-    
      consultaUsuario= prompt("Desea continuar? Ingrese ¨si¨ en dicho caso : ");
   
-    }// Fin while
-
-    descuentoAplicado = sumaPrecioSubtotal * porcentajeDescuento
-    precioFinal = sumaPrecioSubtotal - descuentoAplicado;
+    }////              FIN WHILE            /////
 
     
     if(acumuladorBolsas > 30){
         porcentajeDescuento = 25;
-      }if(acumuladorBolsas > 10){
-        porcentajeDescuento = 15
-      }else{}
-    
-      // porcentajes descuento.
+      }
+      else{
+        if(acumuladorBolsas > 10){
+        porcentajeDescuento = 15;
+        }
+      }
 
-
-    if(acumuladorCemento > acumuladorArena && acumuladorCemento > acumuladorCal){
-          alert ("La mayor cantidad de bolsas fueron de cemento.");
-      } if(acumuladorArena > acumuladorCemento){
-             alert ("La mayor cantidad de bolsas fueron de arena");
+      if(acumuladorBolsas > 10){
+        descuentoAplicado = acumuladorSubtotal * porcentajeDescuento / 100;
+        precioFinal = acumuladorSubtotal - descuentoAplicado;
+      }
+      else{}
+    /// PORCENTAJES DESCUENTOS
+     
+    if(acumuladorArena > acumuladorCemento && acumuladorArena > acumuladorCal){
+      alert ("La mayor cantidad de unidades son de : Arena. ");
     }
     else{
-      alert ("La mayor cantidad de bolsas fueron de cal.");
+      if(acumuladorCal > acumuladorArena && acumuladorCal > acumuladorCemento){
+        alert ("La mayor cantidad de unidades son de : Cal. ");
+      }
+      else{
+        alert ("La mayor cantidad de unidades son de : Cemento. ");
+      }
     }
-    // tipo con mas cantidad.
+   /// TIPO CON MAS UNIDADES 
+   
 
+  alert (" El importe total en bruto es : $"+acumuladorSubtotal);
 
-    
+   if(precioFinal > 0)
+     {
+         alert (" El precio final con descuento es : $"+ precioFinal)
+     }else{}
+
+  alert ("El tipo mas caro es : "+ tipoMasCaro);
+  /// TIPO MAS CARO
+
 
 }

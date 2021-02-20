@@ -1,4 +1,6 @@
 /*
+Diego Ormeño
+
 Enunciado:
 Bienvenidos.
 En el ingreso a un viaje en avion nos solicitan nombre , edad, sexo("f" o "m") y estado civil("soltero", "casado" o "viudo")y temperatura corporal.
@@ -18,12 +20,11 @@ function mostrar()
 	let temperaturaIngreso;
 	let nombreTempAlta;
 	let temperaturaMasAlta;
-	let mayoresDeEdadViudos;
 	let contadorSolteros;
 	let contadorHombresSolterosViudos;
 	let contadorMayoresEdadViudos;
 	let contadorMasDe60ConTemp;
-	let acumuladorEdadSolteros;
+	let acumuladorEdadSolterosViudos;
 	let promedioSolteros;
 	let consultaUsuario;
 
@@ -33,7 +34,7 @@ function mostrar()
 	contadorHombresSolterosViudos = 0;
 	contadorMasDe60ConTemp = 0;
 	contadorSolteros = 0;
-	acumuladorEdadSolteros = 0;
+	acumuladorEdadSolterosViudos = 0;
 	
 
 	while(consultaUsuario == "si")
@@ -67,7 +68,7 @@ function mostrar()
 			//Fin validaciones
 
 			
-			if(temperaturaMasAlta == 0 || temperaturaMasAlta < temperaturaIngreso){
+			if(temperaturaMasAlta == 0 || temperaturaIngreso > temperaturaMasAlta){
 				temperaturaMasAlta = temperaturaIngreso;
 				nombreTempAlta = nombreIngreso;
 			}else{}
@@ -80,6 +81,7 @@ function mostrar()
 			
 			if(sexoIngreso == "masculino" && estadoCivilIngreso == "soltero" || estadoCivilIngreso == "viudo"){
 				contadorHombresSolterosViudos++;
+				acumuladorEdadSolterosViudos = acumuladorEdadSolterosViudos + edadIngreso;
 			}else{}
 			// contador hombres solteros o viudos
 
@@ -87,96 +89,22 @@ function mostrar()
 				contadorMasDe60ConTemp++;
 			}else{}
 
-			if(estadoCivilIngreso == "soltero"){
+			if(estadoCivilIngreso == "soltero" && sexoIngreso == "masculino"){
 				contadorSolteros++;
-				acumuladorEdadSolteros = edadIngreso;
 			}else{}
 
-			promedioSolteros = acumuladorEdadSolteros / contadorSolteros;
 
 			consultaUsuario = prompt("Ingrese si para continuar : ");
+
+			
 		}// Fin while principal	
+	
+	promedioSolteros = acumuladorEdadSolterosViudos / contadorSolteros;
+	
 
-
+	alert ("El nombre de la persona con mas temperatura es : "+nombreTempAlta);
+	alert ("La cantidad de mayores de edad viudos es : "+ contadorMayoresEdadViudos);
+	alert ("La cantidad de hombres solteros o viudos es : "+contadorHombresSolterosViudos);
+	alert ("La cantidad de mayores de 60 con mas de 38° de temperatura es : "+contadorMasDe60ConTemp);
+	alert ("El promedio de edad entre los hombres solteros es : "+promedioSolteros);
 }
-/*
-let nombre;
-	let edad;
-	let sexo;
-	let estadoCivil;
-	let temperaturaCarga;
-	let contadorMayoresEdadViudos;
-	let solteros;
-	let viudos;
-	let ancianoFiebre;
-	let promedioSolteros;
-	let consultaUsuario;
-	let tempCovid;
-	let nombreCovid;
-	let contadorSolteros;
-	let contadorViudos;
-
-
-
-	consultaUsuario = "si"; 						// entrada al bucle
-	nombreCovid = 0; 								// nombre persona con mayor temperatura
-	contadorSolteros = 0;							// cantidad de solteros
-	contadorViudos = 0;								// cantidad de viudos
-	contadorMayoresEdadViudos = 0;					// cantidad de gente mayor de edad y viudos
-
-
-
-	while(consultaUsuario == "si"){
-
-		nombre = prompt ("Ingrese nombre pasajero : ");
-
-		edad = prompt("Ingrese edad : ");
-		edad = parseInt(edad);
-			while(isNaN(edad))
-				{
-					edad = prompt("Dato erroneo. Ingrese edad : ");
-					edad = parseInt(edad);
-				}
-
-		sexo = prompt("Igrese sexo ( f o m ) : ");
-			while(!(sexo == "f" || sexo == "m"))
-				{
-					sexo = prompt("Dato erroneo. Igrese sexo ( f o m ) : ");
-				}
-
-		estadoCivil = prompt('Ingrese estado civil ("soltero", "casado" o "viudo")');
-			while(!(estadoCivil == "soltero" || estadoCivil == "casado" || estadoCivil == "viudo"))
-				{
-					estadoCivil = prompt('Error. Ingrese estado civil ("soltero", "casado" o "viudo")');
-				}
-			if(estadoCivil == "soltero"){
-				contadorSolteros++;
-			}
-			if(estadoCivil == "viudo"){
-				contadorViudos++;
-			}
-			else{}	
-
-		temperaturaCarga = prompt('Ingrese temperatura corporal : ');
-		temperaturaCarga = parseInt(temperaturaCarga);
-			if(tempCovid == 0 || temperaturaCarga > tempCovid){
-				tempCovid = temperaturaCarga;
-				nombreCovid = nombre;
-			}
-
-		if(edad >18 && estadoCivil == "viudo"){
-			contadorMayoresEdadViudos++;
-		}
-		else{}
-
-			
-			
-		consultaUsuario = prompt("Desea continuar con la carga de datos?. Indique ¨si¨ en caso afirmativo : ");
-	}//while
-
-
-	alert ("El nombre de la persona con mayore temperatura es : "+nombreCovid);
-	alert ("La cantidad de mayores de edad viudos es : "+contadorMayoresEdadViudos);
-	alert ("La cantidad de hombres que hay solteros es : "+ contadorSolteros);
-	alert ("La cantidad de hombres que hay viudos es : "+ contadorViudos);
-*/
