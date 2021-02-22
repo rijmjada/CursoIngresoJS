@@ -40,7 +40,7 @@ function mostrar()
 	contadorJabon = 0;
 	cantidadDeCargas = 0;
 
-	for(cantidadDeCargas == 0; cantidadDeCargas < 2; cantidadDeCargas++){
+	for(cantidadDeCargas == 0; cantidadDeCargas < 5 ; cantidadDeCargas++){
 
 		usuarioTipoProducto = prompt("Ingrese tipo de producto (barbijo, jabon, alcohol) :");
 		while(!(usuarioTipoProducto == "barbijo" || usuarioTipoProducto == "jabon" || usuarioTipoProducto == "alcohol")){
