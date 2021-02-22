@@ -22,14 +22,14 @@ function mostrar()
 		
 		if(numeroUsuario % contadorNumeros == 0){
 
-			console.log(contadorNumeros);
+			alert(contadorNumeros);
 			contadorDivisores++;
 		
 		}
 		else{}
 	}
 
-	console.log("La cantidad de divisores es : "+ contadorDivisores);
+	alert("La cantidad de divisores es : "+ contadorDivisores);
 
 
 
