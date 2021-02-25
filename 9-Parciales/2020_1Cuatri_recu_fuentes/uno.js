@@ -93,7 +93,7 @@ function mostrar()
 				break;
 		}//fin switch
 
-		cantidadDeCargas++;
+		
 
 	}// final for
 
