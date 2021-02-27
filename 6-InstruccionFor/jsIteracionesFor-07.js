@@ -54,7 +54,7 @@ g)el promedio de habitantes entre los paises que superan los 40 grados
 H) la temperatura mínima ingresada, y nombre del pais que registro esa temperatura. 
 
 i) que continente tiene mas habitantes.
-*/
+
 
 function mostrar(){
 
@@ -235,3 +235,167 @@ function mostrar(){
 	alert ("el continente con mas habitantes es : " + continenteMasHabitantes);
 
 }
+3- validación :
+pedir el ingreso de 10 mascotas 
+ validar 
+tipo ( gato , perro , pájaro y otros)solo esos cuatro tipo
+raza , si es perro (pastor, toy, callejero) y si gato (siamés, turco, Peterbald , generico) y  si es de tipo "otros" o pájaro , pedir solo un texto
+edad entre 1 y 20 para gatos y perros ,  para "otros" entre 1 y 100 , para pájaro 1 de 50
+nombre ( no se permite solo numero)
+mostrar por cada tipo el nombre del  mas viejo , solo si hay de ese tipo
+
+mostrar que raza  de gatos tiene mas animales y el promedio de edad de esta raza
+*/
+function mostrar(){
+
+	let mascotaIngreso;
+	let razaIngreso;
+	let edadIngreso;
+	let nombreIngreso;
+	let contadorIngresos;
+
+	let edadperroViejo;
+	let edadgatoViejo;
+	let edadpajaroViejo;
+	let edadotrosViejo;
+
+	let nombrePerroViejo;
+	let nombreGatoViejo;
+	let nombrePajaroViejo;
+	let nombreOtrosViejo;
+
+	edadperroViejo= 0;
+	edadgatoViejo= 0;
+	edadpajaroViejo= 0;
+	edadotrosViejo= 0;
+
+	contadorIngresos = 0;
+
+	for(contadorIngresos == 0; contadorIngresos < 1; contadorIngresos++){
+
+		mascotaIngreso = prompt("Ingrese tipo de mascota ( gato , perro , pajaro y otros) : ");
+			while((mascotaIngreso)==false || mascotaIngreso != "gato" && mascotaIngreso != "perro" && mascotaIngreso != "pajaro" && mascotaIngreso != "otros"){
+				mascotaIngreso = prompt("DATO INVALIDO. Ingrese tipo de mascota ( gato , perro , pajaro y otros) : ");
+			}
+
+		switch(mascotaIngreso){
+
+			case "perro":
+				razaIngreso = prompt("Ingrese raza (pastor, toy, callejero) : ");
+					while(isNaN(razaIngreso)==false || razaIngreso != "pastor" && razaIngreso != "toy" && razaIngreso != "callejero"){
+						razaIngreso = prompt("DATO INVALIDO. Ingrese raza (pastor, toy, callejero) : ");
+					}
+
+				edadIngreso = prompt("Ingrese edad (entre 1 y 20) : ");
+					while(isNaN(edadIngreso)==true || edadIngreso < 1 || edadIngreso > 20 ){
+						edadIngreso = prompt("DATO INVALIDO. Ingrese edad (entre 1 y 20) : ");
+					}	
+
+				nombreIngreso = prompt("Ingrese nombre mascota : ");
+					while(isNaN(nombreIngreso)==false){
+						nombreIngreso = prompt("DATO INVALIDO. Ingrese nombre mascota : ");
+					}
+
+					
+				if(edadperroViejo == 0 || edadperroViejo < edadIngreso){
+					nombrePerroViejo = nombreIngreso;
+					edadperroViejo = edadIngreso;
+				}
+				break;
+
+
+			case "gato":
+				razaIngreso = prompt("Ingrese raza gato (siames, turco, Peterbald , generico) : ");
+					while(isNaN(razaIngreso)==false || razaIngreso != "siames" && razaIngreso != "turco" && razaIngreso != "Peterbald" && razaIngreso != "generico"){
+						razaIngreso = prompt("DATO INVALIDO. Ingrese raza gato (siames, turco, Peterbald , generico) : ");
+					}
+
+				edadIngreso = prompt("Ingrese edad (entre 1 y 20) : ");
+					while(isNaN(edadIngreso)==true || edadIngreso < 1 || edadIngreso > 20 ){
+					edadIngreso = prompt("DATO INVALIDO. Ingrese edad (entre 1 y 20) : ");
+					}		
+				
+				nombreIngreso = prompt("Ingrese nombre mascota : ");
+					while(isNaN(nombreIngreso)==false){
+						nombreIngreso = prompt("DATO INVALIDO. Ingrese nombre mascota : ");
+					}
+
+				if(edadgatoViejo == 0 || edadgatoViejo < edadIngreso){
+						nombreGatoViejo = nombreIngreso;			
+						edadgatoViejo= edadIngreso;
+					}
+
+				break;
+
+
+			case "pajaro":
+				razaIngreso = prompt("Ingrese raza ");
+					while(isNaN(razaIngreso)==false){
+						razaIngreso = prompt("DATO INVALIDO. Ingrese raza ");
+					}
+
+				edadIngreso = prompt("Ingrese edad (entre 1 y 50) : ");
+					while(isNaN(edadIngreso)==true || edadIngreso < 1 || edadIngreso > 50){
+						edadIngreso = prompt("DATO INVALIDO. Ingrese edad (entre 1 y 50) : ");
+					}	
+
+				nombreIngreso = prompt("Ingrese nombre mascota : ");
+					while(isNaN(nombreIngreso)==false){
+						nombreIngreso = prompt("DATO INVALIDO. Ingrese nombre mascota : ");
+					}
+
+				if(edadpajaroViejo == 0 || edadpajaroViejo < edadIngreso){
+						nombrePajaroViejo = nombreIngreso;	
+						edadpajaroViejo = edadIngreso;
+					}
+	
+				break;
+
+
+			case "otros":
+				razaIngreso = prompt("Ingrese raza ");
+					while((razaIngreso)==false){
+						razaIngreso = prompt("DATO INVALIDO. Ingrese raza ");
+					}
+
+				edadIngreso = prompt("Ingrese edad (entre 1 y 100) : ");
+					while(isNaN(edadIngreso)==true || edadIngreso < 1 || edadIngreso > 100){
+						edadIngreso = prompt("DATO INVALIDO. Ingrese edad (entre 1 y 100) : ");
+					}			
+
+				nombreIngreso = prompt("Ingrese nombre mascota : ");
+					while(isNaN(nombreIngreso)==false){
+						nombreIngreso = prompt("DATO INVALIDO. Ingrese nombre mascota : ");
+					}
+
+				if(edadotrosViejo == 0 || edadotrosViejo < edadIngreso){
+						nombreOtrosViejo = nombreIngreso;
+						edadotrosViejo= edadIngreso;
+					}	
+					
+				break;
+
+
+		}//switch
+
+
+	}//final for
+
+	if(edadperroViejo != 0){
+		alert("El nombre del perro mas viejos es : "+nombrePerroViejo );
+	}
+
+	if(edadgatoViejo != 0){
+		alert("El nombre del gato mas viejos es : "+nombreGatoViejo);
+	}
+
+	if(edadpajaroViejo != 0){
+		alert("El nombre del pajaro mas viejos es : "+nombrePajaroViejo );
+	}
+
+	if(edadotrosViejo != 0){
+		alert("El nombre del x mas viejos es : "+nombreOtrosViejo );
+	}
+
+
+}//fuction
