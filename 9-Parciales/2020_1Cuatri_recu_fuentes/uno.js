@@ -13,105 +13,112 @@ c) Cuántas unidades de Barbijos se compraron en total*/
 
 function mostrar()
 {
-	let usuarioTipoProducto;
-	let usuarioPrecio;
-	let usuarioCantidad;
-	let usuarioMarca;
-	let usuarioFabricante;
-	let jabonMasCaroPrecio;
-	let jabonMasCaroUnidades;
-	let jabonMasCaroFabricante;
-	let acumuladorUnidadesBarbijo;
-	let acumuladorUnidadesJabon;
-	let acumuladorUnidadesAlcohol;
-	let contadorBarbijo;
-	let contadorJabon;
-	let contadorAlcohol;
-	let promedio;
-	let cantidadDeCargas;
 	
-	jabonMasCaroUnidades = 0;
-	jabonMasCaroPrecio = 0;
-	acumuladorUnidadesAlcohol = 0;
-	acumuladorUnidadesBarbijo = 0;
-	acumuladorUnidadesJabon = 0;
-	contadorBarbijo = 0;
-	contadorAlcohol = 0;
-	contadorJabon = 0;
-	cantidadDeCargas = 0;
+let tipoProductoIngreso;
+let precioIngreso;
+let cantidadIngreso;
+let marcaIngreso;
+let fabricanteIngreso;
+let contadorIngresos;
+let comparadorPrecioJabones;
+let cantidadJabonCaro;
+let fabricanteJabonCaro;
+let acumuladorJabon;
+let acumuladorBarbijo;
+let acumuladorAlcohol;
+let promedioPorCompra;
+let contadorComprasJabon;
+let contadorComprasAlcohol;
+let contadorComprasBarbijo;
 
-	for(cantidadDeCargas == 0; cantidadDeCargas < 5 ; cantidadDeCargas++){
+contadorComprasBarbijo = 0;
+contadorComprasAlcohol = 0;
+contadorComprasJabon = 0;
+comparadorPrecioJabones = 0;
+promedioPorCompra = 0;
+cantidadJabonCaro = 0;
+acumuladorJabon = 0;
+acumuladorBarbijo = 0;
+acumuladorAlcohol = 0;
+contadorIngresos = 0;
 
-		usuarioTipoProducto = prompt("Ingrese tipo de producto (barbijo, jabon, alcohol) :");
-		while(!(usuarioTipoProducto == "barbijo" || usuarioTipoProducto == "jabon" || usuarioTipoProducto == "alcohol")){
-			usuarioTipoProducto = prompt("DATO INVALIDO. Ingrese tipo de producto (barbijo, jabon, alcohol) :");
-			}
+for(contadorIngresos == 0; contadorIngresos < 3; contadorIngresos++){
 
-		usuarioPrecio = prompt("Ingrese precio : ");
-		usuarioPrecio = parseFloat(usuarioPrecio);
-		while(isNaN(usuarioPrecio)== true){
-			usuarioPrecio = prompt("DATO INVALIDO. Ingrese precio : ");
-			usuarioPrecio = parseFloat(usuarioPrecio);
-			}
-		
-		usuarioCantidad = prompt("Ingrese cantidad : ");
-		usuarioCantidad = parseInt(usuarioCantidad);
-		while(isNaN(usuarioCantidad)){
-			usuarioCantidad = prompt("Ingrese cantidad : ");
-			usuarioCantidad = parseInt(usuarioCantidad);
-			}	
+	tipoProductoIngreso = prompt("Ingrese barbijo, jabon o alcohol : ");
+		while(isNaN(tipoProductoIngreso)==false || tipoProductoIngreso != "barbijo" &&  tipoProductoIngreso != "jabon" && tipoProductoIngreso != "alcohol"){
+			tipoProductoIngreso = prompt("DATO INVALIDO. Ingrese barbijo, jabon o alcohol : ");
+		}
 
-		usuarioMarca = prompt("Ingrese marca : ");
-			while(isNaN(usuarioMarca)==false){
-				usuarioMarca = prompt("DATO INVALIDO. Ingrese marca : ");
-			}
-		
-		usuarioFabricante = prompt("Ingrese fabricante : ")
-			while(isNaN(usuarioFabricante)==false){
-				usuarioFabricante = prompt("DATO INVALIDO. Ingrese fabricante : ")
-			}
-		
-		/////////////// FIN VALIDACIONES ////////////////
+	precioIngreso = prompt("Ingrese precio (100 a 300) : ");
+	precioIngreso = parseInt(precioIngreso);
+	 while(isNaN(precioIngreso)==true || precioIngreso < 100 || precioIngreso > 300){
+		precioIngreso = prompt("DATO INVALIDO. Ingrese precio (100 a 300) : ");
+		precioIngreso = parseInt(precioIngreso);
+	 }	
 
-		switch(usuarioTipoProducto){
 
-			case "alcohol":
-				contadorAlcohol++;
-				acumuladorUnidadesAlcohol = acumuladorUnidadesAlcohol + usuarioCantidad;	
-				break;
-			case "barbijo":
-				contadorBarbijo++;
-				acumuladorUnidadesBarbijo = acumuladorUnidadesBarbijo + usuarioCantidad;	
-				break;
-			case "jabon":
-				contadorJabon++;
-				acumuladorUnidadesJabon = acumuladorUnidadesJabon + usuarioCantidad;
-				if(jabonMasCaroPrecio == 0 || usuarioPrecio > jabonMasCaroPrecio){
-					jabonMasCaroUnidades = usuarioCantidad;
-					jabonMasCaroFabricante = usuarioFabricante;
-				}
-				break;
-		}//fin switch
+	cantidadIngreso = prompt("Ingrese cantidad ( mayor a 0 y no mas de 100) : ");
+	cantidadIngreso = parseInt(cantidadIngreso);
+	 	while(isNaN(cantidadIngreso)==true || cantidadIngreso <1 || cantidadIngreso > 1000){
+			cantidadIngreso = prompt("DATO INVALIDO. Ingrese cantidad ( mayor a 0 y no mas de 100) : ");
+			cantidadIngreso = parseInt(cantidadIngreso);
+		 }
 
-		
+	marcaIngreso = prompt("Igrese marca : ");
+		 while(isNaN(marcaIngreso)==false){
+			marcaIngreso = prompt("DATO INVALIDO. Igrese marca : ");
+		 }
 
-	}// final for
 
-	if(acumuladorUnidadesAlcohol > acumuladorUnidadesBarbijo && acumuladorUnidadesAlcohol > acumuladorUnidadesJabon){
-		promedio = acumuladorUnidadesAlcohol / contadorAlcohol;
+	fabricanteIngreso = prompt("Ingrese fabricante : ");
+	while(isNaN(fabricanteIngreso)==false){
+		fabricanteIngreso = prompt("DATO INVALIDO. Igrese fabricante : ");
+	 }
+
+	/////////////////// fin validaciones ////////////////
+
+	switch (tipoProductoIngreso){
+		case "jabon":
+			acumuladorJabon= acumuladorJabon + cantidadIngreso;
+			contadorComprasJabon++;
+			break;
+		case "barbijo":
+			acumuladorBarbijo = acumuladorBarbijo+ cantidadIngreso;
+			contadorComprasBarbijo++;
+			break;
+		case "alcohol":
+			acumuladorAlcohol = acumuladorAlcohol + cantidadIngreso;
+			contadorComprasAlcohol++;
+			break;
+	}//switch
+
+
+	 if(tipoProductoIngreso == "jabon" && precioIngreso > comparadorPrecioJabones){
+		cantidadJabonCaro = cantidadIngreso;
+		fabricanteJabonCaro = fabricanteIngreso;
+	 }
+
+
+
+	}//final for
+
+	if(acumuladorAlcohol > acumuladorBarbijo && acumuladorAlcohol > acumuladorJabon){
+		promedioPorCompra = acumuladorAlcohol / contadorComprasAlcohol;
 	}
 	else{
-		if(acumuladorUnidadesBarbijo > acumuladorUnidadesJabon && acumuladorUnidadesBarbijo > acumuladorUnidadesAlcohol){
-			promedio = acumuladorUnidadesBarbijo / contadorBarbijo;
+		if(acumuladorBarbijo > acumuladorJabon && acumuladorBarbijo > acumuladorAlcohol){
+			promedioPorCompra = acumuladorBarbijo / contadorComprasBarbijo;
 		}
 		else{
-			promedio = acumuladorUnidadesJabon / contadorJabon;
+			promedioPorCompra = acumuladorJabon / contadorComprasJabon;
 		}
 	}
 
-	alert ("La cantidad de jabones mas caros es : "+ acumuladorUnidadesJabon + " y el fabricante es : "+ jabonMasCaroFabricante);
-	alert ("El promedio por compra del producto mas comprado es : "+ promedio);
-	alert ("La cantidad de unidades de barbijos comprados es : "+ acumuladorUnidadesBarbijo);
 
+	if(cantidadJabonCaro > 0){
+		alert ("La cantidad de unidades del jabon mas caro es : "+cantidadJabonCaro + " y el fabricante es : "+fabricanteJabonCaro);
+	}
+	alert ("Del tipo de producto con más unidades en total de la compra, el promedio por compra es : "+ promedioPorCompra.toFixed(2));
+	alert ("Las unidades de Barbijos se compraron en total son : "+ acumuladorBarbijo);
 
 }//fin fuction
