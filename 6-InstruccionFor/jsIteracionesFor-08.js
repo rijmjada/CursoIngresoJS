@@ -329,7 +329,7 @@ function mostrar(){
 For 13 ( o anterior mas ...el promedio de edad entre los hombre ,
 el promedio de edad entre las mujeres, la cantidad de personas que miden mas de 1,60 metros, 
 y el porcentaje de mujeres sobre el total de personas de mas de 1,60 mts
-*/
+
 function mostrar(){
 	
 	let nombreIngreso;
@@ -483,3 +483,374 @@ function mostrar(){
 	alert("El porcentaje de mujeres que miden 160 es : "+ porcentajeSobre160);
 
 }
+
+Para un censo municipal debemos cargar los datos de TODAS las mascotas de nuestra veterinaria
+necesitan saber si es un gato o un perrro u "otra cosa",(solo hay esos tres tipos)
+el tipo de pelaje (corto, largo , sin pelo),
+la edad de la mascota (edad validada);
+el nombre (una palabra) 
+la raza  (una palabra) 
+el peso (peso validado) 
+el estadoClinico (enfermo,internado o adopcion)
+la temperaruta corporal
+
+y nos piden informar solo si existe
+a)El perro mas pesado
+b)El porcentaje de enfermos sobre el total de mascotas
+c)El nombre de la ultima mascota de tipo "otra cosa"
+d)El animal sin pelo con menor temperatura corporal
+e)Que tipo de mascota(gato o un perrro u "otra cosa") que tiene el mayor promedio de temperatura corporal
+f)Sumando gatos y perros que porcentaje del total de mascotas son?
+g)Que estado clinico tiene la menor cantidad de mascotas       
+H)Cual es el promedio de kilos de peso de tomando todas las mascotas 
+i)El nombre y raza del gato sin pelos mas liviano
+
+function mostrar (){
+
+let tipoMascota;
+let pelajeMascota;
+let edadMascota;
+let nombreMascota;
+let razaMascota;
+let pesoMascota;
+let estadoClinico;
+let temperaturaMascota;
+
+let comparadorPesoPerro;
+let nombrePerroPesado;
+
+let acumuladorGralMascotas;
+let porcentajeEnfermos;
+
+let nombreUltimaMascotaOtro;
+
+let nombreSinpeloMenorTemp;
+let comparadorSinpeloMenorTemp;
+
+let acumuladorTempPerros;
+let acumuladorTempGatos;
+let acumuladorTempOtro;
+
+let AcumuladorPerrosYgatos;
+
+let nombreGatoSinPeloLiviano;
+let razaGatoSinPeloLiviano;
+
+
+let consultaUsuario;
+
+comparadorPesoPerro = 0;
+consultaUsuario = "si";
+
+while(consultaUsuario == "si"){
+
+	tipoMascota = prompt("Ingrese tipo mascota (gato, perro u otro) : ");
+		while(isNaN(tipoMascota)==false || tipoMascota != "gato" && tipoMascota != "perro" && tipoMascota != "otro"){
+			tipoMascota = prompt("DATO INVALIDO . Ingrese tipo mascota (gato, perro u otro) : ");
+		}
+
+	
+	switch(tipoMascota){
+
+		case "gato":
+		pelajeMascota = prompt("Ingrese tipo de pelaje (corto, largo , sin pelo) : ");
+				while((pelajeMascota)==false || pelajeMascota != "corto" && pelajeMascota != "largo" && pelajeMascota != "sin pelo" ){
+					pelajeMascota = prompt(" DATO INVALIDO . Ingrese tipo de pelaje (corto, largo , sin pelo) : ");
+				}
+				edadMascota = prompt ("Ingrese edad de la mascota :");
+		edadMascota = parseInt(edadMascota);
+			while(isNaN(edadMascota)==true){
+				edadMascota = prompt ("DATO INVALIDO . Ingrese edad de la mascota :");
+			}
+		nombreMascota = prompt("Ingrese nombre de la mascota : ");
+			while(isNaN(nombreMascota)==false){
+				nombreMascota = prompt("DATO INVALIDO . Ingrese nombre de la mascota : ");
+			}
+		
+		razaMascota = prompt("Ingrese la raza : ");
+			while(isNaN(razaMascota)==false){
+				razaMascota = prompt("DATO INVALIDO . Ingrese  la raza: ");
+			}	
+		
+		pesoMascota = prompt ("Ingrese el peso  :");
+		pesoMascota = parseInt(edadMascota);
+				while(isNaN(pesoMascota)==true){
+					pesoMascota = prompt ("DATO INVALIDO . Ingrese el peso  :");
+					pesoMascota = parseInt(edadMascota);
+				}
+
+
+		estadoClinico = prompt("Ingrese el estado clinico (enfermo,internado o adopcion) : ")	
+			while(isNaN(estadoClinico)==false || estadoClinico != "enfermo" && estadoClinico != "internado" && estadoClinico != "adopcion"){
+				estadoClinico = prompt("DATO INVALIDO .Ingrese el estado clinico (enfermo,internado o adopcion) : ")	
+			}
+
+
+		temperaturaMascota = prompt ("Ingrese la temperaruta corporal :");
+		temperaturaMascota = parseInt(temperaturaMascota);
+			while(isNaN(temperaturaMascota)==true){
+				temperaturaMascota = prompt ("DATO INVALIDO . Ingrese la temperaruta corporal :");		
+				temperaturaMascota = parseInt(temperaturaMascota);
+			}
+			break;
+
+		case "perro":
+			pelajeMascota = prompt("Ingrese tipo de pelaje (corto, largo , sin pelo) : ");
+			while((pelajeMascota)==false || pelajeMascota != "corto" && pelajeMascota != "largo" && pelajeMascota != "sin pelo" ){
+				pelajeMascota = prompt(" DATO INVALIDO . Ingrese tipo de pelaje (corto, largo , sin pelo) : ");
+			}
+			break;
+			edadMascota = prompt ("Ingrese edad de la mascota :");
+			edadMascota = parseInt(edadMascota);
+				while(isNaN(edadMascota)==true){
+					edadMascota = prompt ("DATO INVALIDO . Ingrese edad de la mascota :");
+				}
+			nombreMascota = prompt("Ingrese nombre de la mascota : ");
+				while(isNaN(nombreMascota)==false){
+					nombreMascota = prompt("DATO INVALIDO . Ingrese nombre de la mascota : ");
+				}
+		
+			razaMascota = prompt("Ingrese la raza : ");
+				while(isNaN(razaMascota)==false){
+					razaMascota = prompt("DATO INVALIDO . Ingrese  la raza: ");
+				}	
+		
+			pesoMascota = prompt ("Ingrese el peso  :");
+			pesoMascota = parseInt(edadMascota);
+					while(isNaN(pesoMascota)==true){
+						pesoMascota = prompt ("DATO INVALIDO . Ingrese el peso  :");
+						pesoMascota = parseInt(edadMascota);
+				}
+
+
+			estadoClinico = prompt("Ingrese el estado clinico (enfermo,internado o adopcion) : ")	
+				while(isNaN(estadoClinico)==false || estadoClinico != "enfermo" && estadoClinico != "internado" && estadoClinico != "adopcion"){
+					estadoClinico = prompt("DATO INVALIDO .Ingrese el estado clinico (enfermo,internado o adopcion) : ")	
+				}
+
+
+			temperaturaMascota = prompt ("Ingrese la temperaruta corporal :");
+			temperaturaMascota = parseInt(temperaturaMascota);
+				while(isNaN(temperaturaMascota)==true){
+					temperaturaMascota = prompt ("DATO INVALIDO . Ingrese la temperaruta corporal :");		
+					temperaturaMascota = parseInt(temperaturaMascota);
+				}
+			
+			
+		
+		case "otro":
+			pelajeMascota = prompt("Ingrese tipo de pelaje (corto, largo , sin pelo) : ");
+				while((pelajeMascota)==false || pelajeMascota != "corto" && pelajeMascota != "largo" && pelajeMascota != "sin pelo" ){
+					pelajeMascota = prompt(" DATO INVALIDO . Ingrese tipo de pelaje (corto, largo , sin pelo) : ");
+				}
+			edadMascota = prompt ("Ingrese edad de la mascota :");
+			edadMascota = parseInt(edadMascota);
+				while(isNaN(edadMascota)==true){
+					edadMascota = prompt ("DATO INVALIDO . Ingrese edad de la mascota :");
+				}
+			nombreMascota = prompt("Ingrese nombre de la mascota : ");
+				while(isNaN(nombreMascota)==false){
+					nombreMascota = prompt("DATO INVALIDO . Ingrese nombre de la mascota : ");
+				}
+		
+			razaMascota = prompt("Ingrese la raza : ");
+				while(isNaN(razaMascota)==false){
+					razaMascota = prompt("DATO INVALIDO . Ingrese  la raza: ");
+			}	
+		
+			pesoMascota = prompt ("Ingrese el peso  :");
+			pesoMascota = parseInt(edadMascota);
+				while(isNaN(pesoMascota)==true){
+					pesoMascota = prompt ("DATO INVALIDO . Ingrese el peso  :");
+					pesoMascota = parseInt(edadMascota);
+				}
+
+
+			estadoClinico = prompt("Ingrese el estado clinico (enfermo,internado o adopcion) : ")	
+				while(isNaN(estadoClinico)==false || estadoClinico != "enfermo" && estadoClinico != "internado" && estadoClinico != "adopcion"){
+					estadoClinico = prompt("DATO INVALIDO .Ingrese el estado clinico (enfermo,internado o adopcion) : ")	
+				}
+
+
+			temperaturaMascota = prompt ("Ingrese la temperaruta corporal :");
+			temperaturaMascota = parseInt(temperaturaMascota);
+				while(isNaN(temperaturaMascota)==true){
+					temperaturaMascota = prompt ("DATO INVALIDO . Ingrese la temperaruta corporal :");		
+					temperaturaMascota = parseInt(temperaturaMascota);
+				}
+			break;	
+	}//switch
+		
+
+}//while
+}
+
+
+Para un censo municipal debemos cargar los datos de TODAS las mascotas de nuestra veterinaria
+necesitan saber si es un gato o un perrro u "otra cosa",(solo hay esos tres tipos)
+el tipo de pelaje (corto, largo , sin pelo),
+la edad de la mascota (edad validada);
+el nombre (una palabra) 
+la raza  (una palabra) 
+el peso (peso validado) 
+el estadoClinico (enfermo,internado o adopcion)
+la temperaruta corporal
+
+y nos piden informar solo si existe
+a)El perro mas pesado
+b)El porcentaje de enfermos sobre el total de mascotas
+c)El nombre de la ultima mascota de tipo "otra cosa"
+d)El animal sin pelo con menor temperatura corporal
+
+e)Que tipo de mascota(gato o un perrro u "otra cosa") que tiene el mayor promedio de temperatura corporal
+
+f)Sumando gatos y perros que porcentaje del total de mascotas son?
+g)Que estado clinico tiene la menor cantidad de mascotas       
+H)Cual es el promedio de kilos de peso tomando todas las mascotas 
+i)El nombre y raza del gato sin pelos mas liviano
+
+*/
+
+function mostrar (){
+
+let tipoMascota;
+let tipoPelaje;
+let edadMascota;
+let razaMascota;
+let pesoMascota;
+let estadoClinico;
+let temperaturaMascota;
+
+let contadorPerros;
+let contadorGatos;
+let contadorOtros;
+
+let ultimoNombreOtro;
+let contadorTotalMascotas;
+
+let contadorEnfermos;
+let porcentajeEnfermos;
+
+let nombrePerroMayorPeso;
+let compradoPerroMayorPeso;
+
+let comparadorSinpeloMenorTemp;
+let banderaSinPeloTemp;
+let nombreSinpeloMenorTemp;
+
+let comparadorTipoMayorTemp;
+
+
+
+
+
+let consultaUsuario;
+
+banderaSinPeloTemp = 0;
+contadorEnfermos = 0;
+contadorTotalMascotas = 0;
+contadorPerros = 0;
+contadorGatos = 0;
+contadorOtros = 0;
+consultaUsuario = "si";
+
+while(consultaUsuario == "si"){
+
+	tipoMascota = prompt("Ingerse tipo de mascota (perro, gato u otro) : ");
+		while(isNaN(tipoMascota)==false || tipoMascota != "gato" && tipoMascota != "perro" && tipoMascota != "otro"){
+			tipoMascota = prompt("DATO INVALIDO . Ingrese tipo mascota (gato, perro u otro) : ");
+		}
+	
+	pelajeMascota = prompt("Ingrese tipo de pelaje (corto, largo , sin pelo) : ");
+		while(isNaN(pelajeMascota)==false || pelajeMascota != "corto" && pelajeMascota != "largo" && pelajeMascota != "sin pelo" ){
+				pelajeMascota = prompt(" DATO INVALIDO . Ingrese tipo de pelaje (corto, largo , sin pelo) : ");
+			}
+
+	edadMascota = prompt ("Ingrese edad de la mascota :");
+	edadMascota = parseInt(edadMascota);
+		while(isNaN(edadMascota)==true){
+				edadMascota = prompt ("DATO INVALIDO . Ingrese edad de la mascota :");
+			}
+
+	nombreMascota = prompt("Ingrese nombre de la mascota : ");
+		while(isNaN(nombreMascota)==false){
+				nombreMascota = prompt("DATO INVALIDO . Ingrese nombre de la mascota : ");
+			}
+		
+	razaMascota = prompt("Ingrese la raza : ");
+		while(isNaN(razaMascota)==false){
+				razaMascota = prompt("DATO INVALIDO . Ingrese  la raza: ");
+			}	
+		
+	pesoMascota = prompt ("Ingrese el peso  :");
+	pesoMascota = parseInt(pesoMascota);
+		while(isNaN(pesoMascota)==true){
+				pesoMascota = prompt ("DATO INVALIDO . Ingrese el peso  :");
+				pesoMascota = parseInt(pesoMascota);
+			}
+
+
+	estadoClinico = prompt("Ingrese el estado clinico (enfermo,internado o adopcion) : ")	
+		while(isNaN(estadoClinico)==false || estadoClinico != "enfermo" && estadoClinico != "internado" && estadoClinico != "adopcion"){
+				estadoClinico = prompt("DATO INVALIDO .Ingrese el estado clinico (enfermo,internado o adopcion) : ")	
+			}
+
+
+	temperaturaMascota = prompt ("Ingrese la temperaruta corporal :");
+	temperaturaMascota = parseInt(temperaturaMascota);
+		while(isNaN(temperaturaMascota)==true){
+				temperaturaMascota = prompt ("DATO INVALIDO . Ingrese la temperaruta corporal :");		
+				temperaturaMascota = parseInt(temperaturaMascota);
+			}
+				///////////// fin validaciones //////////////
+	
+	switch(tipoMascota){
+
+		case "perro":
+			if(compradoPerroMayorPeso < pesoMascota){
+				nombrePerroMayorPeso = nombreMascota;
+			}
+			contadorPerros++;
+				break;
+			
+		case "gato":
+			contadorGatos++;
+			break;
+
+		case "otro":
+			ultimoNombreOtro = nombreMascota;
+			contadorOtros++;
+			break;			
+
+	}//switch
+
+	if(banderaSinPeloTemp == 0 || tipoPelaje == "sin pelo" && comparadorSinpeloMenorTemp < temperaturaMascota){
+		nombreSinpeloMenorTemp = nombreMascota;
+		banderaSinPeloTemp = 1;
+	}
+
+	if(estadoClinico == "enfermo"){
+		contadorEnfermos++;
+	}
+
+	contadorTotalMascotas++;
+
+	consultaUsuario = prompt("Ingrese si para continuar : ");
+}//fin while
+
+porcentajeEnfermos = contadorTotalMascotas / contadorTotalMascotas * 100;
+
+
+alert ("El nombre del perro mas pesado es : "+ nombrePerroMayorPeso);
+alert ("El porcentaje de enfermos sobre el total es : "+porcentajeEnfermos);
+if(contadorOtros > 0){
+	alert ("El nombre de la ultima mascota de tipo otra cosa es : "+ultimoNombreOtro);
+}
+
+if(banderaSinPeloTemp == 1){
+	alert ("El nombre del animal sin pelo con menor temperatura corporal es : "+nombreSinpeloMenorTemp);
+}
+
+
+}//fuction
+
